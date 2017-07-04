@@ -34,12 +34,13 @@ MAIN CONTENT
 <div id="login-page">
     <div class="container">
 
-        <form class="form-login" action="index.html">
+        <form class="form-login" action="{{ route('login') }}">
+            {{ csrf_field() }}
             <h2 class="form-login-heading">sign in now</h2>
             <div class="login-wrap">
-                <input type="text" class="form-control" placeholder="User ID" autofocus>
+                <input type="text" class="form-control" placeholder="Email" name="email" autofocus>
                 <br>
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" name="password">
                 <label class="checkbox">
 		                <span class="pull-right">
 		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
@@ -56,7 +57,7 @@ MAIN CONTENT
                 </div>
                 <div class="registration">
                     Don't have an account yet?<br/>
-                    <a class="" href="{{ route('register') }}">
+                    <a class="" href="#">
                         Create an account
                     </a>
                 </div>
