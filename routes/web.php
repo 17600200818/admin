@@ -7,3 +7,7 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'IndexController@index');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
