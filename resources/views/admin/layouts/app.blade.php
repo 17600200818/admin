@@ -200,7 +200,7 @@
                 <h5 class="centered">Marcel Newman</h5>
 
                 <li class="mt">
-                    <a href="index.html">
+                    <a class="active" href="index.html">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -230,7 +230,7 @@
                     </ul>
                 </li>
                 <li class="sub-menu">
-                    <a class="active" href="javascript:;" >
+                    <a href="javascript:;" >
                         <i class="fa fa-book"></i>
                         <span>Extra Pages</span>
                     </a>
