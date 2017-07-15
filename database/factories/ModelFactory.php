@@ -26,3 +26,16 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'status' => $status
     ];
 });
+
+$factory->define(\App\Models\Advertiser::class, function(Faker\Generator $faker){
+
+    return [
+        'name' => $faker->name,
+        'buyer_id' => 100001,
+        'buyer_advertiser_id' => rand(500, 100),
+        'site_name' => $faker->name,
+        'domain' => $faker->domainName,
+        'created_at' => $faker->time('Y-m-d h:i:s'),
+        'status' => rand(1, 4),
+    ];
+});
