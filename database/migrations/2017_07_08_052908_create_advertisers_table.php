@@ -15,13 +15,21 @@ class CreateAdvertisersTable extends Migration
     {
         Schema::create('advertisers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->comment('名字');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('tel')->comment('电话号码');
-            $table->string('last_login_ip')->comment('最后登录ip');
+            $table->string('name');
+            $table->integer('buyer_id');
+            $table->string('buyer_advertiser_id')->comment('买方广告主id');
+            $table->integer('category1')->nullable();
+            $table->integer('category2')->nullable();
+            $table->string('site_name')->nullable();
+            $table->string('domain');
+            $table->string('address')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('tel')->nullable();
+            $table->string('linkman')->nullable();
             $table->string('status')->comment('1:待审核;2:正常;3:审核不通过,4:停用');
-            $table->rememberToken();
+            $table->string('remark')->comment('备注')->nullable();
+            $table->integer('cuid')->default(0);
+            $table->integer('muid')->default(0);
             $table->timestamps();
         });
     }
