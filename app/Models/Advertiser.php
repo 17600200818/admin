@@ -11,6 +11,6 @@ class Advertiser extends Model
     ];
 
     public function buyer() {
-        $this->belongsTo(Buyer::class);
+        return $this->belongsTo('App\Models\Buyer');
     }
 }

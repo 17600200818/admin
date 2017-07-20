@@ -21,9 +21,9 @@ class AdvertiserFilesController extends Controller
 
         $path = $request->file('file')->store('advertiserFile');
 
-        $buyer = Advertiser::findOrFail($request->advertiserId)->buyer;
-        $buyerId = $buyer->id;
-        return $info;
+        $advertiser = Advertiser::findOrFail($request->advertiserId);
+        $buyerId = $advertiser->buyer();
+        return $buyerId;
         if ($path) {
             $data = [
                 'buyer_id' => $buyerId,
