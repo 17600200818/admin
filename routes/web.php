@@ -6,10 +6,11 @@ Route::post('login', 'Auth\LoginController@login')->name('login');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'IndexController@index');
-    Route::resource('advertisers', 'AdvertisersController');
-
     Route::post('/advertisers/editStatus', 'AdvertisersController@editStatus')->name('advertiser.editStatus');
     Route::post('/advertiserFiles', 'AdvertiserFilesController@store')->name('advertiserFiles.store');
+
+    Route::resource('advertisers', 'AdvertisersController');
+    Route::resource('creatives', 'CreativesController');
 });
 
 Auth::routes();

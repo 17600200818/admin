@@ -213,7 +213,7 @@
                     </a>
                     <ul class="sub">
                         <li><a  href="{{ route('advertisers.index') }}">广告主</a></li>
-                        <li><a  href="buttons.html">Buttons</a></li>
+                        <li><a  href="{{ route('creatives.index') }}">素材</a></li>
                         <li><a  href="panels.html">Panels</a></li>
                     </ul>
                 </li>
