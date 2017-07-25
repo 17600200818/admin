@@ -14,6 +14,30 @@ class AdvertisersController extends Controller
         return view('admin.advertisers.index', compact('advertisers'));
     }
 
+    public function edit(Advertiser $advertiser) {
+        $buyer = $advertiser->buyer;
+        $category = $advertiser->sysIndustryCategory;
+        $categoryList = $category->categoryList();
+        return view('admin.advertisers.edit', compact('advertiser', 'buyer', 'category', 'categoryList'));
+    }
+
+    public function update(Request $request, $id) {
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+        $data = [
+            'name' => $request->name,
+            'site_name' => $request->site_name,
+            'domain' => $request->domain,
+            'address' => $request->address,
+            'category1' => $request->category1,
+            'category2' => $request->category2,
+        ];
+
+        Advertiser::where('id', $id)->update($data);
+        return redirect()->route('advertisers.index');
+    }
+
     public function editStatus(Request $request) {
         $result = ['status' => '1',  'statusInfo' => 'error'];
         $this->validate($request, [

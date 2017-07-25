@@ -22,8 +22,7 @@ class AdvertiserFilesController extends Controller
         $path = $request->file('file')->store('advertiserFile');
 
         $advertiser = Advertiser::findOrFail($request->advertiserId);
-        $buyerId = $advertiser->buyer();
-        return $buyerId;
+        $buyerId = $advertiser->buyer->id;
         if ($path) {
             $data = [
                 'buyer_id' => $buyerId,
@@ -33,6 +32,7 @@ class AdvertiserFilesController extends Controller
                 'file_path' => $path,
                 'status' => 1,
                 'cuid' => Auth::id(),
+                'created_at' => date('Y-m-d h:i:s')
             ];
 
             $result = DB::table('advertiser_files')->insert($data);

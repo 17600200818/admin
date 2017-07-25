@@ -21,7 +21,7 @@ class CreateAdvertisersTable extends Migration
             $table->integer('category1')->nullable();
             $table->integer('category2')->nullable();
             $table->string('site_name')->nullable();
-            $table->string('domain');
+            $table->string('domain')->nullable();
             $table->string('address')->nullable();
             $table->string('zip')->nullable();
             $table->string('tel')->nullable();

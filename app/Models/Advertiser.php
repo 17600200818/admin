@@ -13,4 +13,8 @@ class Advertiser extends Model
     public function buyer() {
         return $this->belongsTo('App\Models\Buyer');
     }
+
+    public function sysIndustryCategory() {
+        return $this->belongsTo('App\Models\SysIndustryCategory', 'category2', 'c2');
+    }
 }

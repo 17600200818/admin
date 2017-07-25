@@ -39,7 +39,7 @@
                 </td>
                 <td>
                     <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#uploadFile" onclick="siteAdvertiserId({{ $v->id }})"><i class="fa fa-check"></i></button>
-                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                    <a href="{{ route('advertisers.edit', $v->id) }}"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a>
                     <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                 </td>
             </tr>
@@ -121,7 +121,7 @@
 
     function editStatus(status) {
         var advertiserId = $('#AdvertiserId').val();
-        $.post("{{ route('advertiser.editStatus') }}", { '_token': '{{csrf_token()}}', 'status': status, 'advertiserId': advertiserId }, function (data) {
+        $.post("{{ route('advertisers.editStatus') }}", { '_token': '{{csrf_token()}}', 'status': status, 'advertiserId': advertiserId }, function (data) {
             if (data.status == 0) {
                 if (status == 2) {
                     $("#Status"+advertiserId).attr('class', 'btn btn-success btn-xs');

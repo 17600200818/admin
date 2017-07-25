@@ -11,6 +11,6 @@ class Buyer extends Model
     ];
 
     public function advertisers() {
-        $this->hasMany(Advertiser::class);
+        return $this->hasMany('App\Models\Advertiser');
     }
 }
